@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EarthQuake Data</string>
+    <string name="label_place">Location</string>
+    <string name="label_event_time">Time</string>
+    <string name="label_gps">GPS Data</string>
+    <string name="title">Event Title</string>
+    <string name="sample_text_location">Kirtipur</string>
+    <string name="sample_text_time">2015-04-25 12:15 PM</string>
+    <string name="sample_text_coordinates">84.7453, 27.9487, 10</string>
+    <string name="sample_text_magnitude">7.5</string>
+</resources>

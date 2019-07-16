@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="earthquake"
+            type="com.azens1995.earthquakedata.data.remote.response.EarthquakeResponse" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:visible="@{earthquake.properties.place}">
+
+        <TextView
+            android:id="@+id/labelPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textLocation"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/label_place" />
+
+        <TextView
+            android:id="@+id/labelEventTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textTime"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/label_event_time" />
+
+        <TextView
+            android:id="@+id/labelGpsLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textGps"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/label_gps" />
+
+        <TextView
+            android:id="@+id/labelTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/title" />
+
+        <TextView
+            android:id="@+id/textLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{earthquake.properties.place}"
+            app:layout_constraintEnd_toEndOf="@+id/barrierText"
+            app:layout_constraintStart_toEndOf="@+id/barrierLabel"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle"
+            tools:text="@string/sample_text_location" />
+
+        <TextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:time="@{earthquake.properties.time}"
+            app:layout_constraintStart_toEndOf="@+id/barrierLabel"
+            app:layout_constraintTop_toBottomOf="@+id/textLocation"
+            tools:text="@string/sample_text_time" />
+
+        <TextView
+            android:id="@+id/textGps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="@{earthquake.geometry.coordinates.get(0)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barrierLabel"
+            app:layout_constraintTop_toBottomOf="@+id/textTime"
+            tools:text="@string/sample_text_coordinates" />
+
+        <TextView
+            android:id="@+id/textMagnitude"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@{String.valueOf(earthquake.properties.mag)}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="@+id/textGps"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/barrierText"
+            app:layout_constraintTop_toBottomOf="@+id/labelTitle"
+            tools:text="@string/sample_text_magnitude" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="labelEventTime,labelPlace,labelGpsLocation"
+            tools:layout_editor_absoluteX="411dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="textLocation,textGps,textTime"
+            tools:layout_editor_absoluteX="226dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
