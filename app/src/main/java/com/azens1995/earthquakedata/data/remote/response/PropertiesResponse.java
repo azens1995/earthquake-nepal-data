@@ -32,11 +32,15 @@ public class PropertiesResponse {
     private float gap;
     private String magType;
     private String type;
+    private String title;
 
     public PropertiesResponse() {
     }
 
-    public PropertiesResponse(float mag, String place, long time, long updated, long tz, String url, String detail, float felt, float cdi, float mmi, String alert, String status, float tsunami, float sig, String net, String code, String ids, String sources, String types, String nst, float dmin, float rms, float gap, String magType, String type) {
+    public PropertiesResponse(float mag, String place, long time, long updated, long tz, String url, String detail,
+                              float felt, float cdi, float mmi, String alert, String status, float tsunami, float sig,
+                              String net, String code, String ids, String sources, String types, String nst, float dmin,
+                              float rms, float gap, String magType, String type, String title) {
         this.mag = mag;
         this.place = place;
         this.time = time;
@@ -62,6 +66,7 @@ public class PropertiesResponse {
         this.gap = gap;
         this.magType = magType;
         this.type = type;
+        this.title = title;
     }
 
     public float getMag() {
@@ -262,6 +267,14 @@ public class PropertiesResponse {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override

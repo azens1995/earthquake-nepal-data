@@ -13,9 +13,9 @@ public class ApplicationConstants {
 
     // LATITUDE
     public static final String KEY_MIN_LATITUDE = "minlatitude";
-    public static final int VAL_MIN_LATITUDE = 27;
+    public static final int VAL_MIN_LATITUDE = 26;
     public static final String KEY_MAX_LATITUDE = "maxlatitude";
-    public static final int VAL_MAX_LATITUDE = 29;
+    public static final int VAL_MAX_LATITUDE = 30;
 
     // LONGITUDE
     public static final String KEY_MIN_LONGITUDE = "minlongitude";

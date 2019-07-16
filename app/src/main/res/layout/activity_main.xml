@@ -12,6 +12,24 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_fileName="loader_animation.json"
+            app:lottie_scale="0.4" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/earthquake_recyclerView"
             android:layout_width="match_parent"

@@ -6,10 +6,15 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.gson.Gson;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.regex.Pattern;
+
+import timber.log.Timber;
 
 /**
  * Created by Azens Eklak on 2019-07-16.
@@ -21,11 +26,13 @@ public class BindingAdapter {
     @androidx.databinding.BindingAdapter("app:time")
     public static void setEventDate(TextView textView, long time){
         Date eventDate = new Date(time);
+        Timber.d("Date before->"+new Gson().toJson(eventDate));
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(eventDate);
-        calendar.add(Calendar.HOUR_OF_DAY, 5);
-        calendar.add(Calendar.MINUTE, 45);
-        String eventModifiedDate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(calendar.getTime());
+        /*calendar.add(Calendar.HOUR_OF_DAY, 5);
+        calendar.add(Calendar.MINUTE, 45);*/
+        String eventModifiedDate = new SimpleDateFormat("hh:mm:ss a,\nEEEE\nyyyy-MM-dd", Locale.ENGLISH).format(calendar.getTime());
+        Timber.d("Date after->"+new Gson().toJson(eventModifiedDate));
         textView.setText(eventModifiedDate);
     }
 

@@ -48,4 +48,6 @@ dependencies {
 
     // Timber logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'com.airbnb.android:lottie:3.0.7'
 }
